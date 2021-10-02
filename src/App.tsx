@@ -1,7 +1,13 @@
+import styled from 'styled-components'
+
+const Title = styled.h1`
+background-color: #872cff;
+`
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Title>Hello</Title>
     </div>
   );
 }
