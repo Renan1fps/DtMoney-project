@@ -17,12 +17,12 @@ function App() {
   return (
     <div className="App">
       <Header 
-      onOpenNewTransactionModal={handleOpenTransactionModal}
+        onOpenNewTransactionModal={handleOpenTransactionModal}
       />
       <Dashboard/>
       <NewTransactionModal 
-      isOpen={isOpenTransactionModal}
-      onRequestClose={handleCloseTransactionModal}
+        isOpen={isOpenTransactionModal}
+        onRequestClose={handleCloseTransactionModal}
       />
       <Global/>
     </div>
