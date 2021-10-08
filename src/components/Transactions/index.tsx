@@ -1,12 +1,12 @@
+import axios from "axios";
 import { useEffect } from "react";
 import { Container } from "./style";
 
 export function Transactions(){
 
   useEffect(()=>{
-    fetch("http://localhost:3000/api/transactions")
-    .then(response => response.json())
-    .then(data => console.log(data))
+    axios.get("http://localhost:3000/api/transactions")
+    .then(response => console.log(response.data))
   },[])
 
   return(
