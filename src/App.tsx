@@ -1,7 +1,7 @@
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { Global } from "./styles/global";
-import Modal from 'react-modal'
+import { NewTransactionModal } from "./components/NewTransactionModal";
 import { useState } from "react";
 
 function App() {
@@ -16,14 +16,14 @@ function App() {
   }
   return (
     <div className="App">
-      <Header onOpenNewTransactionModal={handleOpenTransactionModal}/>
+      <Header 
+      onOpenNewTransactionModal={handleOpenTransactionModal}
+      />
       <Dashboard/>
-      <Modal 
-      isOpen={isOpenTransactionModal} 
-      onRequestClose={handleCloseTransactionModal} 
-      >
-       <h1>Hello world</h1>
-      </Modal>  
+      <NewTransactionModal 
+      isOpen={isOpenTransactionModal}
+      onRequestClose={handleCloseTransactionModal}
+      />
       <Global/>
     </div>
   );
