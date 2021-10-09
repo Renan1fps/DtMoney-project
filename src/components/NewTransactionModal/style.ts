@@ -50,11 +50,17 @@ export const TransactionsTypeContainer = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 
-  button{
-    height: 4rem;
+`;
+
+interface ButtonTypeTransactionProps{
+  isActive: boolean
+}
+
+export const ButtonTypeTransaction = styled.button<ButtonTypeTransactionProps>`
+height: 4rem;
     border: 1px solid #d7d7d7;
     border-radius: 0.25rem;
-    background-color: transparent;
+    background-color: ${(props)=> props.isActive ? '#ccc' : 'transparent'};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -73,5 +79,4 @@ export const TransactionsTypeContainer = styled.div`
       font-size: 1rem;
       color: var(--text-title)
     }
-  }
 `;
