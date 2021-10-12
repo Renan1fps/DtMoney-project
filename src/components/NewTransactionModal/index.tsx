@@ -5,7 +5,6 @@ import IncomeImg from '../../assets/income.svg'
 import OutcomeImg from '../../assets/outcome.svg'
 import { useState } from 'react'
 
-Modal.setAppElement("#root")
 interface NewTransactionModalProps{
   isOpen: boolean,
   onRequestClose: ()=> void
