@@ -15,6 +15,7 @@ justify-content: space-between;
 
 button{
 font-size: 1rem;
+color: #fff;
 background-color: var(--blue-light);
 padding: 0 2rem;
 border: 0;
