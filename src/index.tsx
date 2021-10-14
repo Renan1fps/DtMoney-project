@@ -8,6 +8,29 @@ createServer({
     transaction: Model,
   },
 
+  seeds(server){
+    server.db.loadData({
+      transactions:[
+        {
+          id: 1,
+          title: 'Cadeira alpha gamer',
+          type: 'withdraw',
+          category: 'Despesas',
+          amount: 920,
+          createdAt: new Date('2021-10-12 01:40:00'),
+        },
+        {
+          id: 2,
+          title: 'Salário',
+          type: 'deposit',
+          category: 'Trabalho',
+          amount: 1200,
+          createdAt: new Date('2021-02-12 13:40:00'),
+        },
+      ]
+    });
+  },
+
   routes(){
     this.namespace = 'api';
 

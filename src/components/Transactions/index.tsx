@@ -1,12 +1,28 @@
-import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 import { Container } from "./style";
 
-export function Transactions(){
+interface Transaction{
+  id: number,
+  title: string,
+  category: string,
+  amount: number,
+  type: string,
+  createdAt: string
+}
 
-  useEffect(()=>{
-    axios.get("http://localhost:3000/api/transactions")
-    .then(response => console.log(response.data))
+export function Transactions(){
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+  useEffect( ()=>{
+
+    async function fetchData() {
+  
+      const response = await api.get('transactions')
+      setTransactions(response.data)
+    }
+    fetchData();
+  
   },[])
 
   return(
@@ -21,18 +37,14 @@ export function Transactions(){
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Desenvolvimento de WebSite</td>
-            <td className="deposit">R$12.000</td>
-            <td>Desenvolvimento</td>
-            <td>07/10/2021</td>
+         {transactions.map(transaction => (
+            <tr key={transaction.id}>
+              <td>{transaction.title}</td>
+              <td className={transaction.type}>{transaction.amount}</td>
+              <td>{transaction.category}</td>
+              <td>{transaction.createdAt}</td>
           </tr>
-          <tr>
-            <td>Desenvolvimento de WebSite</td>
-            <td className="withdraw">R$12.000</td>
-            <td>Desenvolvimento</td>
-            <td>07/10/2021</td>
-          </tr>
+         ))}
         </tbody>
       </table>
     </Container>
