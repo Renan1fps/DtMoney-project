@@ -18,8 +18,8 @@ export function Transactions(){
 
     async function fetchData() {
   
-      const response = await api.get('transactions')
-      setTransactions(response.data)
+      const response = await api.get<any>('transactions')
+      setTransactions(response.data.transactions)
     }
     fetchData();
   
@@ -40,9 +40,14 @@ export function Transactions(){
          {transactions.map(transaction => (
             <tr key={transaction.id}>
               <td>{transaction.title}</td>
-              <td className={transaction.type}>{transaction.amount}</td>
+              <td className={transaction.type}>
+                {new Intl.NumberFormat('pt-BR',{
+                  style: "currency",
+                  currency: "BRL"
+                }).format(transaction.amount)} 
+              </td>
               <td>{transaction.category}</td>
-              <td>{transaction.createdAt}</td>
+              <td>{new Intl.DateTimeFormat("pt-BR").format( new Date(transaction.createdAt))}</td>
           </tr>
          ))}
         </tbody>
