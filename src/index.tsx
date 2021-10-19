@@ -13,18 +13,18 @@ createServer({
       transactions:[
         {
           id: 1,
-          title: 'Cadeira alpha gamer',
+          title: 'Gasto',
           type: 'withdraw',
           category: 'Despesas',
-          amount: 920,
+          amount: 700,
           createdAt: new Date('2021-10-12 01:40:00'),
         },
         {
           id: 2,
-          title: 'Salário',
+          title: 'Entrada',
           type: 'deposit',
           category: 'Trabalho',
-          amount: 1200,
+          amount: 700,
           createdAt: new Date('2021-02-12 13:40:00'),
         },
       ]
